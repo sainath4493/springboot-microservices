@@ -1,0 +1,28 @@
+#For direct invocation access
+
+http://localhost:8000/currency-exchange/from/USD/to/INR - (doest not go through Zuul api gate way)
+
+http://localhost:8765/{applicaiton.name}/{uri} - (pattern to execute in zuul api)
+
+http://localhost:8765/currency-exchange-service/currency-exchange/from/USD/to/INR
+o/p :
+Request -> org.springframework.cloud.netflix.zuul.filters.pre.Servlet30RequestWrapper@1870247c 
+Request uri -> /currency-exchange-service/currency-exchange/from/USD/to/INR
+
+******************************************************************************************
+
+currency-conversion-service ->api-> curreny-exchange-service
+
+ Request -> org.springframework.cloud.netflix.zuul.filters.pre.Servlet30RequestWrapper@38be075b
+ Request uri -> /currency-exchange-service/currency-exchange/from/USD/to/INR
+ 
+ *****************************************************************************************
+ 
+ http://localhost:8765/currency-conversion-service/currency-converter-feign/from/USD/to/INR/quantity/1000
+ 
+ request -> api ->  currency-conversion-service api -> curreny-exchange-service
+ 
+ Request -> org.springframework.cloud.netflix.zuul.filters.pre.Servlet30RequestWrapper@2a780d4f
+ Request uri -> /currency-exchange-service/currency-exchange/from/USD/to/INR
+ 
+

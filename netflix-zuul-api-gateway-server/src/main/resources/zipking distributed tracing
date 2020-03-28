@@ -1,0 +1,15 @@
+// Spring cloud sleuth
+
+2020-03-22 09:16:13.281  INFO [currency-conversion-service,21f04e88bc4bc326,21f04e88bc4bc326,false] 9620 --- [nio-8100-exec-6] c.c.c.CurrencyConversionController       : com.currencyconversionservice.bean.CurrencyConversionBean@42ada08
+
+Hibernate: select exchangeva0_.id as id1_0_, exchangeva0_.conversion_multiple as conversi2_0_, exchangeva0_.currency_from as currency3_0_, exchangeva0_.port as port4_0_, exchangeva0_.currency_to as currency5_0_ from exchange_value exchangeva0_ where exchangeva0_.currency_from=? and exchangeva0_.currency_to=?
+2020-03-22 09:16:13.273  INFO [currency-exchange-service,21f04e88bc4bc326,33ae6f66dea685d6,false] 8796 --- [nio-8000-exec-5] c.c.c.CurrencyExchangeController         : com.currencyexchangeservice.bean.ExchangeValue@3111f49f
+
+2020-03-22 09:16:13.258  INFO [netflix-zuul-api-gateway-server,21f04e88bc4bc326,878437c80e79d700,false] 1676 --- [nio-8765-exec-5] c.n.logging.ZuulLoggingFilter            : Request -> org.springframework.cloud.netflix.zuul.filters.pre.Servlet30RequestWrapper@90d8ab1 Request uri -> /currency-exchange-service/currency-exchange/from/USD/to/INR
+-------------------------------------------------------
+
+// command to connect and start rabbit mq with zipkin distributed system
+
+SET RABBIT_URI=amqp://localhost
+
+java -jar zipkin-server-2.20.2-exec.jar

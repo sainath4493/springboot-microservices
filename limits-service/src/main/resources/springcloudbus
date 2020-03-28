@@ -1,0 +1,13 @@
+#turning off security
+management.endpoints.web.exposure.include=*
+
+
+http://localhost:8081/actuator/refresh  -- to refersh each instances 
+------------------------------------------------------------------------
+spring cloud bus
+
+add property - 
+spring-cloud-starter-bus-amqp
+
+http://localhost:8080/actuator/bus-refresh
+
